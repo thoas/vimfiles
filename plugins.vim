@@ -294,3 +294,5 @@ endfunction
 function! LightLineReadonly()
   return &ft !~? 'help' && &readonly ? 'RO' : ''
 endfunction
+
+let g:pymode_lint_ignore = ["E501", "W",]
