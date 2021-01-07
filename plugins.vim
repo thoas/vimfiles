@@ -119,8 +119,8 @@ let g:ale_sign_warning = '▲'
 let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
-let g:ale_python_flake8_args="--ignore=E501"
-let g:ale_python_flake8_options = '--ignore=E501'
+let g:ale_python_flake8_args="--ignore=E501,W503,E731"
+let g:ale_python_flake8_options = '--ignore=E501,W503,E731'
 let g:ale_linters = {'python': ['flake8'], 'javascript': ['eslint'], 'go': ['gopls']}
 let g:ale_go_langserver_executable = 'gopls'
 
@@ -295,4 +295,4 @@ function! LightLineReadonly()
   return &ft !~? 'help' && &readonly ? 'RO' : ''
 endfunction
 
-let g:pymode_lint_ignore = ["E501", "W",]
+" let g:go_gopls_enabled = 0
