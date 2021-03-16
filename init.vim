@@ -16,12 +16,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle', 'tag': '5.0.0' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar', { 'tag': 'v2.6.1' }
 Plug 'othree/html5.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'ervandew/supertab'
 call plug#end()
 
 silent !stty -ixon

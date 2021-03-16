@@ -36,6 +36,11 @@ imap <A-UP> <ESC>gki
 imap <A-DOWN> <ESC>gkj
 " }}}
 
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
+
 " PAGE-DOWN with space key {{{
 nmap <Space> <PageDown>
 " }}}

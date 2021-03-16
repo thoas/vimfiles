@@ -1,5 +1,5 @@
 if has("autocmd")
-    au Filetype html,markdown,textile,htmlphp,xml,xsl,rhtml,htmldjango,php source $HOME/,vim/scripts/closetag.vim
+    au Filetype html,markdown,textile,htmlphp,xml,xsl,rhtml,htmldjango,php source $HOME/.vim/scripts/closetag.vim
 endif
 
 let python_highlight_space_errors = 0
@@ -80,9 +80,12 @@ let NERDTreeWinSize=35
 noremap <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 nnoremap <silent> <F9> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
+let g:go_autodetect_gopath = 1
 let g:go_fmt_fail_silently = 1
-let g:go_info_mode = 'gocode'
-let g:go_fmt_command = "goimports"
+let g:go_info_mode = 'gopls'
+" let g:go_fmt_command = "goimports"
+let g:go_imports_mode="gopls"
+let g:go_imports_autosave=1
 let g:go_auto_type_info = 0
 let g:go_snippet_engine = "neosnippet"
 let g:go_highlight_types = 1
@@ -93,6 +96,9 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
+
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
 
 let g:go_metalinter_command = ""
 let g:go_metalinter_deadline = "5s"
@@ -165,6 +171,9 @@ au FileType go nmap <leader>gdv <Plug>(go-def-vertical)
 au FileType go nmap <leader>gdh <Plug>(go-def-horizontal)
 au FileType go nmap <leader>gD <Plug>(go-doc)
 au FileType go nmap <leader>gDv <Plug>(go-doc-vertical)
+nmap <C-g> :GoDecls<cr>
+imap <C-g> <esc>:<C-u>GoDecls<cr>
+
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -295,4 +304,11 @@ function! LightLineReadonly()
   return &ft !~? 'help' && &readonly ? 'RO' : ''
 endfunction
 
-" let g:go_gopls_enabled = 0
+" ==================== Completion + Snippet ====================
+" Ultisnips has native support for SuperTab. SuperTab does omnicompletion by
+" pressing tab. I like this better than autocompletion, but it's still fast.
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
