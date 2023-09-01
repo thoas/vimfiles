@@ -21,6 +21,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 Plug 'psf/black', { 'branch': 'stable' }
 Plug 'ervandew/supertab'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 silent !stty -ixon
